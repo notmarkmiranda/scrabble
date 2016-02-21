@@ -1,4 +1,5 @@
 class Scrabble
+
   def score(word)
     point_values[word.upcase]
   end
