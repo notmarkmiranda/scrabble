@@ -1,12 +1,5 @@
 class Scrabble
 
-  def score(word)
-    return 0 if word == "" || word == nil
-    word.chars.map do |letter|
-        point_values[letter.upcase]
-    end.reduce(:+)
-  end
-
   def point_values
     {
       "A"=>1, "B"=>3, "C"=>3, "D"=>2,
@@ -18,4 +11,18 @@ class Scrabble
       "Y"=>4, "Z"=>10
     }
   end
+
+  def score(word)
+    return 0 if word == "" || word == nil
+    count_score(word)
+  end
+
+
+  def count_score(word)
+    word.chars.map do |letter|
+        point_values[letter.upcase]
+    end.reduce(:+)
+  end
+
+
 end
